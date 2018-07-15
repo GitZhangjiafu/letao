@@ -1,0 +1,53 @@
+.iton-left {
+    width: 90px;
+    height: 100%;
+    float: left
+}
+
+.iton-left li {
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+    width: 90px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: hotpink
+}
+
+.iton-left li.active {
+    border-right: none;
+    background-color: #fff
+}
+
+.iton-left li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #007aff
+}
+
+.iton-right {
+    height: 100%;
+    overflow: hidden;
+    position: relative
+}
+
+.iton-right li {
+    width: 33.33%;
+    float: left
+}
+
+.iton-right li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+
+.iton-right li a img {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto
+}
+
+/*# sourceMappingURL=./cate.css.map */

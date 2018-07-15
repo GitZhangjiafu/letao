@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="css/content.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/user.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
       <div class="nav">
         <ul>
           <li>
-            <a href="user.html">
+            <a class="active" href="user.html">
               <span class="glyphicon glyphicon-user"></span>
               <span>用户管理</span>
             </a>
@@ -61,14 +61,34 @@
       <div class="content_fluid">
         <ol class="breadcrumb">
           <li><a href="#">管理系统</a></li>
-          <li class="active">首页</li>
+          <li class="active">用户管理</li>
         </ol>
 
 
         <!-- 每个页面具体的内容 -->
         <div class="lt_content">
-          <div class="chart-left pull-left"></div>
-          <div class="chart-right pull-right"></div>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th width="10%">序号</th>
+                <th width="30%">用户名</th>
+                <th width="30%">手机号</th>
+                <th width="20%">状态</th>
+                <th width="10%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 挖个坑 -->
+            </tbody>
+          </table>
+          
+          <!-- 
+            分页结构
+           -->
+           <div class="text-right">
+              <ul id="pagintor"></ul>
+           </div>
+           
         </div>
       </div>
     </div>
@@ -95,10 +115,31 @@
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="lib/artTemplate/template-web.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="lib/nprogress/nprogress.js"></script>
-    <script src="lib/echarts/echarts.min.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/user.js"></script>
+
+
+    <!-- 模板 -->
+    <script type="text/html" id="usertpl">
+      {{each rows v i}}
+      <tr>
+        <td>{{v.id}}</td>
+        <td>{{v.username}}</td>
+        <td>{{v.mobile}}</td>
+        <td>{{v.isDelete=='1'?"正常":"禁用"}}</td>
+        <td>
+          {{if v.isDelete=="0"}}
+          <button class="btn btn-success btn-md">启用</button>
+          {{else}}
+          <button class="btn btn-danger bth-md">禁用</button>
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </script>
 </body>
 
 </html>

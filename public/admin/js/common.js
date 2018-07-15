@@ -20,8 +20,9 @@ $(document).ajaxStop(function(){
 
 // 两级菜单隐藏事件
 $('.second').prev().on('click',function(){
-    $('.second').slideToggle();
+    $(this).next().slideToggle();
 });
+
 
 $('.itcion').on('click',function(){
     $('.lt_aside').toggleClass('active');
@@ -34,7 +35,18 @@ $('.tionst').on('click',function(){
     $('#logant').modal('show');
 });
 
-
+//退出登录
+$('.btn-login').on('click',function(){
+    $.ajax({
+        type:'get',
+        url:'/employee/employeeLogout',
+        success:function(info){
+            if(info.success){
+                location="login.html";
+            } 
+        }
+    })
+});
 
 
 
